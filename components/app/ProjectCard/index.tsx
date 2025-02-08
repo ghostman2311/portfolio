@@ -14,22 +14,39 @@ const ProjectCard = ({ project }: { project: Project }) => {
             <sub>{project.timeRange}</sub>
           </div>
           <div className="projectHeaderLinks">
-            <Button variant="link" url={project.url} newTab={true} disabled={project.url.length === 0}>Website</Button>
-            <Button variant="link" url={project.github} newTab={true} disabled={project.github.length === 0}>Repository</Button>
+            <Button
+              variant="link"
+              url={project.url}
+              newTab={true}
+              disabled={project.url.length === 0}
+            >
+              Website
+            </Button>
+            <Button
+              variant="link"
+              url={project.github}
+              newTab={true}
+              disabled={project.github.length === 0}
+            >
+              Repository
+            </Button>
           </div>
         </div>
         <div className="projectBody">
-          {
-            project.imgUrl ?
-              <a href={project.imgUrl} target="_blank" rel="noreferrer">
-                <img src={project.imgUrl} width="100%" alt={project.name} loading="lazy" draggable="false" />
-              </a>
-              :
-              <></>
-          }
-          <ReactMarkdown>
-            {project.description}
-          </ReactMarkdown>
+          {project.imgUrl ? (
+            <a href={project.imgUrl} target="_blank" rel="noreferrer">
+              <img
+                src={project.imgUrl}
+                width="100%"
+                alt={project.name}
+                loading="lazy"
+                draggable="false"
+              />
+            </a>
+          ) : (
+            <></>
+          )}
+          <ReactMarkdown>{project.description}</ReactMarkdown>
         </div>
       </Paper>
     </section>

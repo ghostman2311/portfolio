@@ -22,23 +22,21 @@ const Projects = () => {
       </Head>
       <NavigationView
         navPosition="right"
-        content={(
+        content={
           <article className="topLevelPage">
             <h2>Projects</h2>
             <div className="cardList">
-              {
-                projectData.projects.map((project) => {
-                  return (
-                    <ProjectCard
-                      key={`project-item-${project.id}`}
-                      project={project}
-                    />
-                  );
-                })
-              }
+              {projectData.projects.map((project) => {
+                return (
+                  <ProjectCard
+                    key={`project-item-${project.id}`}
+                    project={project}
+                  />
+                );
+              })}
             </div>
           </article>
-        )}
+        }
       />
     </>
   );
